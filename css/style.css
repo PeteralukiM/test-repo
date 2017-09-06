@@ -41,7 +41,7 @@ header {
   .logo{
     position: absolute;
     top: 90px;
-    left: 160px;
+    margin-left: 30px;
 }
 
 footer {

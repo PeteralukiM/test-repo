@@ -5,33 +5,58 @@
 		<title>CyberSoft Exam</title>
     
     <link rel="stylesheet" href="css/style.css">
-    
-    	</head>
-	<body>
-<div class="container">
+       
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+    window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#edeff5",
+          "text": "#838391"
+        },
+        "button": {
+          "background": "#4b81e8"
+        }
+      },
+      "theme": "classic",
+      "type": "opt-in",
+      "content": {
+        "message": "Naša webová lokalita používa súbory cookie. Používaním tejto lokality vyjadrujete súhlas s používaním súborov cookie. Dúfame, že to nevadí. ",
+        "dismiss": "Nesúhlasim",
+        "allow": "Súhlasim",
+        "link": "Viac informácií"
+      }
+    })});
+    </script>  
+ </head>
+      
+ <body>
+  <div class="container">
 
-<div class="flex-container">
-<header>
- <div class="logo">
-   <a href="http://www.cybersoft.cz/"><img src="images/LogoH1.gif" alt="CyberSoft"></a>
+    <div class="flex-container">
+      <header>
+        <div class="logo">
+          <a href="http://www.cybersoft.cz/"><img src="images/LogoH1.gif" alt="CyberSoft"></a>
+        </div>
+      </header>
+
+    <nav class="nav">
+        <h1>Left Panel<h1>
+        <form action="#" method="get">
+        <button type="submit" value="Submit">Download</button>
+        </form>
+    </nav>
+
+    <article class="article">
+      <h1>Content Panel</h1>
+    </article>
+
+    <footer>Created by Peter Mikula, Exam for CyberSoft</footer>
+   </div>
+
   </div>
-</header>
 
-<nav class="nav">
-<h1>Left Panel<h1>
-  <form action="#" method="get">
-  <button type="submit" value="Submit">Download</button>
-</form>
-</nav>
-
-<article class="article">
-  <h1>Content Panel</h1>
-</article>
-
-<footer>Created by Peter Mikula, Exam for CyberSoft</footer>
-</div>
-
-</div>
-
-</body>
+ </body>
 </html>
