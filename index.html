@@ -29,7 +29,8 @@
         "link": "Viac informácií"
       }
     })});
-    </script>  
+    </script>
+    <script src="./js/load_data.js"></script>  
  </head>
       
  <body>
@@ -38,19 +39,20 @@
     <div class="flex-container">
       <header>
         <div class="logo">
-          <a href="http://www.cybersoft.cz/"><img src="images/LogoH1.gif" alt="CyberSoft"></a>
+          <a href="http://www.cybersoft.cz/" target="blank"><img src="images/LogoH1.gif" alt="CyberSoft"></a>
         </div>
       </header>
 
     <nav class="nav">
         <h1>Left Panel<h1>
         <form action="#" method="get">
-        <button type="submit" value="Submit">Download</button>
+        <button type="button" value="Submit" onclick="loadXMLDoc()">Download</button>
         </form>
     </nav>
 
     <article class="article">
       <h1>Content Panel</h1>
+       <div id="showData"></div>
     </article>
 
     <footer>Created by Peter Mikula, Exam for CyberSoft</footer>
