@@ -3,7 +3,7 @@ window.onload = function() {
    
    
     
-};
+};  
 function loadXMLDoc() {
 
 var client = new XMLHttpRequest();
@@ -42,6 +42,7 @@ function showResult(xmlhttp) {
         }
        // console.log(col);
      var table = document.createElement("table");
+     table.setAttribute("id", "myTable");
     var tr = table.insertRow(-1);              
 
         for (var i = 0; i < col.length; i++) {   
@@ -64,25 +65,92 @@ function showResult(xmlhttp) {
             }    
             
         }
-
+               var tabCell;
      
-        for (var i = 0; i < mesta.length; i++) {
+        for (var i = 0; i < mesta.length; i++) {     
 
             tr = table.insertRow(-1);
 
             for (var j = 0; j < col.length; j++) {
-                var tabCell = tr.insertCell(-1);
+                tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = mesta[i][col[j]];
+                  
             }
         }
 
-
+             
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";
         divContainer.appendChild(table);
-    
-
+             //First location
+       var table1=document.getElementById("myTable").rows[1].cells[1].innerHTML;
+           console.log(table1);
+       var  degrees=parseInt(table1.substr(1,2));
+       var min=parseInt(table1.substr(4,1));
+       var sec=parseFloat("0."+table1.substr(6,5))*60;      
+       var deci1= degrees+(min/60)+sec/3600; console.log(deci1);
+       
+       var degrees=parseInt(table1.substr(13,2));
+       var min=parseInt(table1.substr(17,2));
+      var  sec=parseFloat("0."+table1.substr(20,4))*60;
+        var deci2= degrees+(min/60)+sec/3600;  console.log(deci2);
+       
+          //second location
+        var table1=document.getElementById("myTable").rows[3].cells[1].innerHTML;
+           console.log(table1);
+      var degrees=parseInt(table1.substr(1,2));
+      var min=parseInt(table1.substr(4,2));
+       var sec=parseFloat("0."+table1.substr(7,5))*60;
+        var deci3= degrees+(min/60)+sec/3600; console.log(deci3.toFixed(4));
+       
+       
+       var degrees=parseInt(table1.substr(14,2));
+       var min=parseInt(table1.substr(17,2));
+       var sec=parseFloat("0."+table1.substr(20,4))*60;
+        var deci4= degrees+(min/60)+sec/3600;  console.log(deci4.toFixed(4));
+         
+        /////// 
+         var table1=document.getElementById("myTable").rows[2].cells[1].innerHTML;
+           console.log(table1);
+      var degrees=parseInt(table1.substr(1,2));
+      var min=parseInt(table1.substr(4,2));
+       var sec=parseFloat("0."+table1.substr(7,5))*60;
+        var deci5= degrees+(min/60)+sec/3600; console.log(deci5.toFixed(4));
+       
+       
+       var degrees=parseInt(table1.substr(14,2));
+       var min=parseInt(table1.substr(17,2));
+       var sec=parseFloat("0."+table1.substr(20,4))*60;
+        var deci6= degrees+(min/60)+sec/3600;  console.log(deci6.toFixed(4));
+       
+          var location=[
+            [deci1.toFixed(5),deci2.toFixed(5)],
+            [deci3.toFixed(5),deci4.toFixed(5)],
+            [deci5.toFixed(5),deci6.toFixed(5)]
+          ];
+           initMap(location);
+  
 }
+function initMap(location) {
+        
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 6,
+           center: new google.maps.LatLng(49.8413,18,2902),
+        });
+        
+       var marker, i;
+
+    for (i = 0; i < location.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(location[i][0], location[i][1]),
+        map: map
+      });
+
+        } 
+        
+        
+      }
+      
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("showData");
